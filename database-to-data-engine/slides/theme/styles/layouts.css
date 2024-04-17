@@ -134,6 +134,11 @@
     @apply text-6xl font-700;
   }
 }
+
+.slidev-layout.two-columns {
+    @apply gap-6;
+}
+
 .slidev-layout.quote {
   @apply grid h-full;
 

@@ -26,11 +26,11 @@ fonts:
 
 ---
 
-<img src="/directus-white.png" class="h-12 mx-auto mb-12" />
+<img src="/directus-plus-white-logo.png" class="h-12 mx-auto mb-12" />
 
-*Let's Build*
+# Connecting Stripe <br> *Minimum Viable Billing*
 
-# Database to <br> *Data Engine*
+Directus+ Workshop Series
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -46,21 +46,18 @@ The last comment block of each slide will be treated as slide notes. It will be 
 layout: cover
 ---
 
-### What We're *Building*
+# What We're *Building*
 
-<br />
+## Directus Arcade
 
-# Powerful Data Engine
-
-*from a siloed SQL database*
+*A monthly subscription for retro arcade games.*
 
 
-- Connect Directus to your database
-- Create instant REST and GraphQL APIs
-- Restrict permissions to our data
-- Share data with non-technical users
-- Build a dashboard without writing code
-- Automate a workflow
+- Add a product payment button to our site with Stripe
+- Provide access to a private GitHub repo
+  - Handle subscription creation
+  - Handle subscription deletion
+- Manage subscriptions with Directus
 
 ---
 
