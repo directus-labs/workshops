@@ -199,12 +199,7 @@ Hold the presses. Directus keeps your data secure by design (and default). <br>
 So we need to adjust permissions.
 
 
-
 <img src="/error-forbidden.png" class="max-h-[300px] rounded-xl"/>
-
-
-::right::
-
 
 ---
 layout: default
@@ -241,9 +236,6 @@ http://localhost:8055/items/answers
 ```
 http://localhost:8055/items/answers/00004f55-c2cc-46bd-a0f2-b8d1a24cf671
 ```
-
-
-
 
 ---
 
