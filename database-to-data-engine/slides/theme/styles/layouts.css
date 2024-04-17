@@ -1,0 +1,148 @@
+:root {
+    /* default theme color */
+    /* can be overrided by uses `themeConfig` option */
+    --slidev-theme-primary: #6644ff;
+    --primary: var(--primary-400);
+	--secondary: #fe97dc;
+	--danger: #dd3f53;
+	--background: var(--white);
+	--foreground: var(--black);
+
+	--primary-50: #f0ecff;
+	--primary-100: #d1c7ff;
+	--primary-200: #a38fff;
+	--primary-300: #7557ff;
+	--primary-400: #6644ff;
+	--primary-500: #5c3de6;
+	--primary-600: #4730b3;
+	--primary-700: #332280;
+	--primary-800: #1f144c;
+	--primary-900: #0a0719;
+
+    --white: #ffffff;
+	--gray-50: #f8fafc;
+	--gray-100: #f1f5f9;
+	--gray-200: #e2e8f0;
+	--gray-300: #cbd5e1;
+	--gray-400: #94a3b8;
+	--gray-500: #64748b;
+	--gray-600: #475569;
+	--gray-700: #334155;
+	--gray-800: #1e293b;
+	--gray-900: #0f172a;
+	--black: #0e1c2f;
+  }
+
+
+.slidev-layout {
+
+    .slidev-code-copy {
+        color: var(--white) !important;
+        @apply group-hover:opacity-50;
+
+        .slidev-icon {
+            @apply w-12 h-12;
+        }
+
+    }
+
+
+    font-size: 1.4rem;
+
+    pre {
+        background-color: var(--gray-900) !important;
+
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+
+
+    h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+        font-style: normal;
+        background: linear-gradient(143deg, var(--primary-500) 0%, var(--secondary) 100%);
+        background: linear-gradient(88deg, var(--primary-300) 0%, var(--secondary) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+        z-index: 1;
+    }
+
+  h1 + p {
+    @apply -mt-2 opacity-50 mb-4;
+  }
+
+  p + h2, ul + h2, table + h2 {
+    @apply mt-10;
+  }
+
+  h1 {
+    @apply text-4xl mb-4 -ml-[0.05em];
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-base;
+  }
+
+  h6 {
+    @apply text-sm pt-1 uppercase tracking-widest font-500 -ml-[0.05em];
+  }
+
+  h6:not(.opacity-100) {
+    @apply opacity-40;
+  }
+}
+
+.slidev-layout.cover,
+.slidev-layout.intro {
+  @apply h-full grid;
+
+  h1 {
+    @apply text-6xl leading-20;
+  }
+}
+
+
+.slidev-layout.fact {
+  @apply text-center grid h-full;
+  h1 {
+    @apply text-8xl font-700;
+  }
+  h1 + p {
+    @apply font-700 text-2xl;
+  }
+}
+.slidev-layout.statement {
+  @apply text-center grid h-full;
+
+  h1 {
+    @apply text-6xl font-700;
+  }
+}
+.slidev-layout.quote {
+  @apply grid h-full;
+
+  h1 + p {
+    @apply mt-2;
+  }
+}
+.slidev-layout.section {
+  h1 {
+    @apply text-6xl font-500 leading-20;
+  }
+}
