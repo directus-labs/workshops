@@ -620,13 +620,13 @@ layout: two-cols
 - GPT Model: Your Choice
 - Prompt: Write Custom Prompt
 - Custom Prompt:
-    ```text
+    ```vue
     You are a summarization wizard.
     You'll be given a survey question and a user's answer to the question.
     Your job is to expertly summarize it in a very short sentence.
     ```
 - Text:
-    ```text
+    ```vue
     Question: {{get_answer.question_id.title}}
     Answer: {{get_answer.answer}}
     ```
