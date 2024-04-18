@@ -299,12 +299,10 @@ layout: two-cols
 <hr class="mb-4" />
 
 - Go to [Data Model settings](http://localhost:8055/admin/settings/data-model)
-- Adjust the forms for each collection (answers, questions, survey_responses)
-- Add icons, select an interface, add a display template, change display order
-
-For `answers` collection - add two new textarea fields
-- team_notes
-- ai_summary
+- For `answers` collection - add two new textarea fields
+  - `team_notes`
+  - `ai_summary`
+- Adjust the forms and interfaces for each collection (answers, questions, survey_responses) to your own liking
 
 
 ::right::
