@@ -150,13 +150,14 @@ services:
 
 ---
 
-# Directus becomes friends with your database
+# Directus becomes *friends* with your database
 
 Directus sits alongside your database so your data remains pure. All Directus metadata gets stored in prefixed tables that are simple to delete later if no longer needed.
 
-<div class="flex gap-6 w-full">
-    <img src="/terminal-docker-compose-up.png" class="w-1/2 max-h-[450px] object-contain" />
-    <img src="/directus-tables.png" class="w-1/2 max-h-[450px] object-contain" />
+<div class="grid grid-cols-2 gap-6 w-full">
+    <!-- <img src="/terminal-docker-compose-up.png" class=" max-h-[450px] object-contain" /> -->
+    <img src="/directus-tables.png" class=" max-h-[450px] object-contain" />
+    <img src="/best-friends.gif" class=" max-h-[200px] object-contain" />
 </div>
 
 ---
