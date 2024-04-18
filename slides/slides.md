@@ -666,7 +666,7 @@ layout: two-cols
 
 
 ::right::
-<img src="flow-test.png" class="rounded-xl object-contain" />
+<img src="/flow-test.png" class="rounded-xl object-contain" />
 
 <style>
     li {
