@@ -285,22 +285,432 @@ http://localhost:8055/items/answers?aggregate[count]=*&groupBy[]=question_id&gro
 
 ---
 layout: cover
+background: '/backgrounds/dark-glow.png'
+---
+
+# **Adding Your <br>*Team Members* 🐰🐰🐰**
+
+
+---
+layout: two-cols
+---
+# 5. Craft a *Beautiful UI*
+
+<hr class="mb-4" />
+
+- Go to [Data Model settings](http://localhost:8055/admin/settings/data-model)
+- Adjust the forms for each collection (answers, questions, survey_responses)
+- Add icons, select an interface, add a display template, change display order
+
+For `answers` collection - add two new textarea fields
+- team_notes
+- ai_summary
+
+
+::right::
+
+<img src="/answer-form.png" class="rounded-xl" />
+
+
+
+---
+layout: two-cols
+---
+# 6. Add a new *Role*
+
+<hr class="mb-4" />
+
+- Open [Access Control settings](http://localhost:8055/admin/settings/roles/)
+- Create a new role "User" or "Team Member"
+- Enable App Access
+- Add "Read" permissions for each collection
+
+
+::right::
+<img src="/team-member-role.png" class="rounded-xl" />
+
+
+---
+layout: two-cols
+---
+
+# 7. Invite a new *User*
+
+<hr class="mb-4" />
+
+- Open [User Directory](http://localhost:8055/admin/users/+)
+- Create a new user
+- Add email and password
+- Don't forget to apply the role you created
+- Save user
+- Login to Directus in incognito window
+
+
+::right::
+
+<img src="/new-user.png" class="rounded-xl mb-4" />
+
+<img src="/new-user-role.png" class="rounded-xl" />
+
+---
+layout: cover
+background: '/backgrounds/dark-glow.png'
+---
+
+# **Building a <br>*Dashboard* 📈**
+
+---
+layout: cover
+---
+## *Dashboards* – without code or SQL queries
+
+<div class="flex gap-6 mt-4">
+    <img src="/state-of-data-dashboard.png" class="rounded-xl w-1/2 object-contain" />
+    <img src="/panel-options.png" class="rounded-xl w-1/2 object-contain" />
+</div>
+
+
+---
+layout: two-cols
+---
+
+
+# 8. Import *Dashboard*
+
+<hr class="mb-4" />
+
+- Copy / paste code into a new `.json` file.
+- Open [Insights module](http://localhost:8055/admin/insights).
+- Open Sidebar and click Import option.
+- Choose file and start import.
+
+<br>
+<br>
+
+[Learn about all the different Panels](https://docs.directus.io/user-guide/insights/panels.html)
+
+
+::right::
+```json {all}{maxHeight:'450px'}
+[
+	{
+		"name": "State of Data",
+		"icon": "globe_uk",
+		"note": "Dashboard for the Directus State of Data 2024 Survey",
+		"color": null,
+		"panels": [
+			{
+				"name": "Answers",
+				"icon": "library_add_check",
+				"color": null,
+				"show_header": true,
+				"note": "A summary of the responses to the question",
+				"type": "metric-list",
+				"position_x": 1,
+				"position_y": 28,
+				"width": 30,
+				"height": 20,
+				"options": {
+					"collection": "answers",
+					"groupByField": "answer",
+					"limit": -1,
+					"aggregateFunction": "count",
+					"filter": {
+						"_and": [
+							{
+								"question_id": {
+									"id": {
+										"_eq": "{{question}}"
+									}
+								}
+							}
+						]
+					},
+					"aggregateField": "answer"
+				}
+			},
+			{
+				"name": "Total Complete Survey Responses",
+				"icon": null,
+				"color": "#6644FF",
+				"show_header": true,
+				"note": null,
+				"type": "metric",
+				"position_x": 1,
+				"position_y": 11,
+				"width": 30,
+				"height": 6,
+				"options": {
+					"collection": "survey_responses",
+					"field": "id",
+					"function": "count",
+					"sortField": "submitted_at",
+					"conditionalFormatting": [
+						{
+							"operator": ">=",
+							"value": 0,
+							"color": "#6644FF"
+						}
+					]
+				}
+			},
+			{
+				"name": "Question",
+				"icon": "question_mark",
+				"color": null,
+				"show_header": true,
+				"note": "Choose a specific question to summarize responses",
+				"type": "relational-variable",
+				"position_x": 1,
+				"position_y": 22,
+				"width": 30,
+				"height": 6,
+				"options": {
+					"field": "question",
+					"collection": "questions",
+					"displayTemplate": "{{title}}"
+				}
+			},
+			{
+				"name": null,
+				"icon": "info",
+				"color": null,
+				"show_header": false,
+				"note": null,
+				"type": "label",
+				"position_x": 1,
+				"position_y": 8,
+				"width": 30,
+				"height": 3,
+				"options": {
+					"text": "This dashboard is just a simple example of what you can build with Directus.",
+					"whiteSpace": "normal",
+					"textAlign": "left",
+					"fontWeight": 500,
+					"font": "monospace",
+					"color": "#A2B5CD"
+				}
+			},
+			{
+				"name": null,
+				"icon": null,
+				"color": null,
+				"show_header": false,
+				"note": null,
+				"type": "label",
+				"position_x": 1,
+				"position_y": 5,
+				"width": 30,
+				"height": 3,
+				"options": {
+					"text": "Welcome to the State of Data survey dashboard 👋",
+					"whiteSpace": "normal",
+					"textAlign": "left",
+					"fontWeight": 700,
+					"font": "serif"
+				}
+			},
+			{
+				"name": null,
+				"icon": "info",
+				"color": null,
+				"show_header": false,
+				"note": null,
+				"type": "label",
+				"position_x": 1,
+				"position_y": 19,
+				"width": 30,
+				"height": 3,
+				"options": {
+					"text": "Select a specific question below to see summarized responses.",
+					"whiteSpace": "normal",
+					"textAlign": "left",
+					"fontWeight": 500,
+					"font": "monospace",
+					"color": "#A2B5CD"
+				}
+			}
+		]
+	}
+]
+```
+
+---
+layout: cover
+background: '/backgrounds/dark-glow.png'
+---
+
+# **Automating your <br>*Workflow* 📈**
+
+---
+layout: cover
+---
+## Engines need *automation*
+
+
+<img src="/workflow.png" class="rounded-xl mt-4 object-contain" />
+
+
+
+---
+layout: two-cols
+---
+
+# 9. Explore the *Marketplace*
+
+- Go to the [Marketplace](http://localhost:8055/admin/settings/marketplace)
+- Find and install the [AI Writer Operation](http://localhost:8055/admin/settings/marketplace/extension/8c20b301-38aa-48a7-99c4-3142338da1b2) extension
+- Reload the page
+
+::right::
+<img src="/marketplace-ai.png" class="rounded-xl object-contain" />
+
+
+---
+layout: two-cols
+---
+
+# 10. Start a *Flow*
+
+- Go to [Flows](http://localhost:8055/admin/settings/flows) from within Settings
+- Create new Flow named 'Summarize Long Text Answers'
+- Choose Manual trigger
+  - Select Answers collection
+  - Require confirmation
+
+::right::
+<img src="/manual-flow.png" class="rounded-xl object-contain" />
+
+
+---
+layout: two-cols
+---
+
+# 11. Add a *Read Data* operation
+
+- Key: `get_answer`
+- Permissions: Full Access
+- Collection: `answers`
+- IDs
+    ```vue
+    "{{$trigger.body.keys}}"
+    ```
+- Query:
+    ```json
+    {
+        "fields": [
+            "*",
+            "question_id.*"
+        ]
+    }
+    ```
+
+::right::
+<img src="/read-operation.png" class="rounded-xl object-contain" />
+
+
+---
+layout: two-cols
+---
+
+## 12. Add an *AI Writer* extension operation
+
+- Key: `summarize`
+- OpenAI API Key: [Grab your API key](https://platform.openai.com/api-keys)
+- GPT Model: Your Choice
+- Prompt: Write Custom Prompt
+- Custom Prompt:
+    ```text
+    You are a summarization wizard.
+    You'll be given a survey question and a user's answer to the question.
+    Your job is to expertly summarize it in a very short sentence.
+    ```
+- Text:
+    ```text
+    Question: {{get_answer.question_id.title}}
+    Answer: {{get_answer.answer}}
+    ```
+
+::right::
+<img src="summarize-operation.png" class="rounded-xl object-contain" />
+
+
+---
+layout: two-cols
+---
+# 13. Add a *Update Data* operation
+
+- Permissions: Full Access
+- Collection: `answers`
+- IDs
+    ```vue
+    "{{$trigger.body.keys}}"
+    ```
+- Payload:
+    ```json
+    {
+        "ai_summary": "{{summarize}}"
+    }
+    ```
+
+::right::
+<img src="/update-operation.png" class="rounded-xl object-contain" />
+
+---
+layout: two-cols
+---
+# 14. Test your new *workflow*
+
+- Search `answers` collection for lengthy answers <br>Here's one `62ede016-371f-44a6-8857-b93c1aaf5d71`
+- Open Sidebar and click button to start flow
+
+
+::right::
+<img src="flow-test.png" class="rounded-xl object-contain" />
+
+<style>
+    li {
+        font-size: 1.2rem !important;
+        margin-top: 8px !important;
+        /* line-height: 3rem !important; */
+    }
+</style>
+
+---
+layout: cover
 ---
 # *Recap*
 
 In roughly an hour, you have:
 - Given a sad lonely SQL database new purpose.
-- Built a powerful data engine that can power almost any digital project.
 - Created full CRUD REST and GraphQL APIs.
+- Built a data engine to share your data with your team *(or anyone really)*.
 - Built a dashboard to analyze data.
-- Created an automated workflow – summarization of long text.
+- Created an automated workflow.
+- Learned the basics and benefits of building with Directus.
 
+---
+layout: two-cols
 ---
 
 # Where to go *from here*
 
-- Learn more about Directus on our website
+Ready to go deeper down the rabbit hole?
 
+- [Request commerical license pricing and/or get a one on one demo](https://directus.io/license-request?utm_source=workshop&utm_medium=database-to-data-engine)
+- [Build your (CMS, LMS, PIM, SaaS) ASAP with Directus Plus](https://directus.io/plus?utm_source=workshop&utm_medium=database-to-data-engine) – a collection of Directus starter kits + advanced workshops and training.
+- [Refer a friend](#) and if they book a demo, we'll send you a super sweet, super soft Directus logo tee.
+
+::right::
+<img src="/follow-white-rabbit.png" class="rounded-xl" />
+
+<style>
+    li {
+        font-size: 1.2rem !important;
+        margin-top: 8px !important;
+        /* line-height: 3rem !important; */
+    }
+</style>
 
 ---
 layout: cover
@@ -309,3 +719,23 @@ background: '/backgrounds/dark-glow.png'
 <div class="">
     <p class="text-center text-9xl font-bold">Fin.</p>
 </div>
+
+
+---
+
+# Helpful *links* to learn more about Directus
+
+<hr class="mb-2" />
+
+## Directus Documentation
+
+- [Quick Start Guide](https://docs.directus.io/self-hosted/quickstart.html)
+- [API Reference](https://docs.directus.io/reference/introduction.html)
+- [Developer Blog](https://docs.directus.io/blog/)
+
+<hr class="my-4" />
+
+
+## Directus Website
+
+- [Directus TV](https://directus.io/tv)
