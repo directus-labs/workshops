@@ -55,7 +55,7 @@ layout: cover
 
 - Connect Directus to your database
 - Create instant REST and GraphQL APIs
-- Restrict permissions to our data
+- Restrict permissions to your data
 - Share data with non-technical users
 - Build a dashboard without writing code
 - Automate a workflow
