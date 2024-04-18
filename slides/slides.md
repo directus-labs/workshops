@@ -73,7 +73,7 @@ Here's what you'll need for the workshop.
 <br>
 
 *Duration*
-- Budget - roughly 1 hrs
+- Roughly 1 hr
 
 ---
 layout: cover
@@ -135,6 +135,7 @@ services:
       ADMIN_PASSWORD: "password"
       DB_CLIENT: "sqlite3"
       DB_FILENAME: "/directus/database/state-of-data.db"
+      WEBSOCKETS_ENABLED: true
 
 ```
 
@@ -149,9 +150,9 @@ services:
 
 ---
 
-# Directus bootstraps onto your database
+# Directus becomes friends with your database
 
-Your data remains pure. All Directus metadata gets stored in prefixed tables that are simple to delete later if no longer needed.
+Directus sits alongside your database so your data remains pure. All Directus metadata gets stored in prefixed tables that are simple to delete later if no longer needed.
 
 <div class="flex gap-6 w-full">
     <img src="/terminal-docker-compose-up.png" class="w-1/2 max-h-[450px] object-contain" />
@@ -246,13 +247,15 @@ http://localhost:8055/items/answers/00004f55-c2cc-46bd-a0f2-b8d1a24cf671
 
 The REST APIs are GraphQL-like. Allowing you to only fetch the exact fields you want, even relational fields.
 
+Here we fetch the question and the survey response in a single call.
+
 ```
 http://localhost:8055/items/answers?fields=answer,question_id.title,survey_response_id.*
 ```
 <hr class="my-4">
 
 ### `filter`
-Return items that match specific conditions. See available [Filter Rules](https://docs.directus.io/reference/filter-rules.html)
+Return items that match specific conditions like only showing answers for a specific question. See available [Filter Rules](https://docs.directus.io/reference/filter-rules.html)
 
 ```
 http://localhost:8055/items/answers?filter[question_id][_eq]=gEMB4PWaQ18V
@@ -268,7 +271,7 @@ http://localhost:8055/items/answers?filter[question_id][_eq]=gEMB4PWaQ18V
 
 ### `aggregate`
 
-Perform calculations and return a single result for items within a collection.
+Perform calculations and return a single result for items within a collection like counting the total number of answers.
 ```
 http://localhost:8055/items/answers?aggregate[count]=*
 ```
@@ -276,6 +279,8 @@ http://localhost:8055/items/answers?aggregate[count]=*
 
 ### `groupBy`
 Combine with aggregate to group results based on a shared value. You can group by multiple fields at the same time.
+
+Here we group by question and answers so we can get a count of how many respondents chose each answer. Perfect for analytics and dashboards.
 ```
 http://localhost:8055/items/answers?aggregate[count]=*&groupBy[]=question_id&groupBy[]=answer
 ```
@@ -294,7 +299,7 @@ background: '/backgrounds/dark-glow.png'
 ---
 layout: two-cols
 ---
-# 5. Craft a *Beautiful UI*
+# 5. Create a *Beautiful UI*
 
 <hr class="mb-4" />
 
@@ -377,12 +382,11 @@ layout: two-cols
 
 <hr class="mb-4" />
 
-- Copy / paste code into a new `.json` file.
+- Copy / paste code into a new `.json` file. <br>😅🤦‍♂️ *<span class="text-gray-500">Ohh the irony  - this is just a shortcut for this workshop.</span>*
 - Open [Insights module](http://localhost:8055/admin/insights).
 - Open Sidebar and click Import option.
 - Choose file and start import.
 
-<br>
 <br>
 
 [Learn about all the different Panels](https://docs.directus.io/user-guide/insights/panels.html)
@@ -538,7 +542,7 @@ layout: cover
 background: '/backgrounds/dark-glow.png'
 ---
 
-# **Automating your <br>*Workflow* 📈**
+# **Automating your <br>*Workflow* 🤖**
 
 ---
 layout: cover
@@ -659,7 +663,7 @@ layout: two-cols
 ---
 # 14. Test your new *workflow*
 
-- Search `answers` collection for lengthy answers <br>Here's one `62ede016-371f-44a6-8857-b93c1aaf5d71`
+- Search `answers` collection for lengthy answers. <br>Here's one `62ede016-371f-44a6-8857-b93c1aaf5d71`.
 - Open Sidebar and click button to start flow
 
 
@@ -701,6 +705,7 @@ Ready to go deeper down the rabbit hole?
 
 ::right::
 <img src="/follow-white-rabbit.png" class="rounded-xl" />
+<p class="text-center text-gray-500"><em>Follow the White Rabbit</em></p>
 
 <style>
     li {
