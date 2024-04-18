@@ -150,7 +150,7 @@ services:
 
 ---
 
-# Directus becomes *best friends* with your db
+# Directus becomes *best friends* with your DB
 
 Directus sits alongside your database so your data remains pure. All Directus metadata gets stored in prefixed tables that are simple to delete later if no longer needed.
 
