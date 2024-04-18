@@ -632,7 +632,7 @@ layout: two-cols
     ```
 
 ::right::
-<img src="summarize-operation.png" class="rounded-xl object-contain" />
+<img src="/summarize-operation.png" class="rounded-xl object-contain" />
 
 
 ---
