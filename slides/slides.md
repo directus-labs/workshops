@@ -111,7 +111,7 @@ background: '/backgrounds/dark-geo.png'
 
 <hr class="mb-4" />
 
-- Within `/database-engine` create a new file named <br> `docker-compose.yaml`.
+- Within `/data-engine` create a new file named <br> `docker-compose.yaml`.
 - Copy and paste the code on the right into the file.
 - Save the file.
 - From your terminal (`⌘T` within VS Code), run `docker compose up`
